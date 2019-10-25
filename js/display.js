@@ -11,7 +11,7 @@ class Display {
         this.highlight_location = {x: 0, y: 0};
         this.context = canvas.getContext("2d");
         this.build_grid();
-        this.draw();
+        this.highlight(0, 0);
     }
 
     build_grid() {
@@ -30,7 +30,7 @@ class Display {
                 let y = (2*Display.RADIUS + Display.SPACE)*(row+1) - Display.RADIUS;
 
                 if (col === this.highlight_location.x && row === this.highlight_location.y) {
-                    this.context.fillStyle = `lime`;
+                    this.context.fillStyle = `rgb(${this.highlight_color.r}, ${this.highlight_color.g}, ${this.highlight_color.b})`;
                     this.context.fillRect(x - Display.RADIUS, y - Display.RADIUS, 2*Display.RADIUS, 2*Display.RADIUS);
                 }
 
@@ -47,7 +47,8 @@ class Display {
         this.draw();
     }
 
-    highlight(x, y) {
+    highlight(x, y, color={r:0, g:255, b:0}) {
+        this.highlight_color = color;
         this.highlight_location.x = x;
         this.highlight_location.y = y;
         this.draw();

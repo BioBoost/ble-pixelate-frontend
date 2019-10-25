@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         controller.connect()
         .then(() => {
             console.log("Connected to BLE controller");
+            cursor.change_color({r:0, g:0, b:200});
             controller.addEventListener('touch', (event) => {
                 switch(event.touchedKey) {
                     case 'R': cursor.move_right(); break;

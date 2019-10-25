@@ -8,18 +8,22 @@ class Cursor {
 
     move_right() {
         this.xLoc = (this.xLoc + 1) % Display.WIDTH;
+        display.highlight(this.xLoc, this.yLoc);
     }
 
     move_left() {
         this.xLoc = (this.xLoc - 1) % Display.WIDTH;
+        display.highlight(this.xLoc, this.yLoc);
     }
 
     move_up() {
         this.yLoc = (this.yLoc - 1) % Display.HEIGHT;
+        display.highlight(this.xLoc, this.yLoc);
     }
 
     move_down() {
         this.yLoc = (this.yLoc + 1) % Display.HEIGHT;
+        display.highlight(this.xLoc, this.yLoc);
     }
 
     colorize(color) {

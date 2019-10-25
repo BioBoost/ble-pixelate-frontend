@@ -7,22 +7,24 @@ class Cursor {
     }
 
     move_right() {
-        this.xLoc = (this.xLoc + 1) % Display.WIDTH;
-        display.highlight(this.xLoc, this.yLoc);
+        this.move(1, 0);
     }
 
     move_left() {
-        this.xLoc = (this.xLoc - 1) % Display.WIDTH;
-        display.highlight(this.xLoc, this.yLoc);
+        this.move(-1, 0);
     }
 
     move_up() {
-        this.yLoc = (this.yLoc - 1) % Display.HEIGHT;
-        display.highlight(this.xLoc, this.yLoc);
+        this.move(0, -1);
     }
 
     move_down() {
-        this.yLoc = (this.yLoc + 1) % Display.HEIGHT;
+        this.move(0, 1);
+    }
+
+    move(deltaX, deltaY) {
+        this.xLoc = Math.max(0, Math.min(this.xLoc + deltaX, Display.WIDTH-1));
+        this.yLoc = Math.max(0, Math.min(this.yLoc + deltaY, Display.HEIGHT-1));
         display.highlight(this.xLoc, this.yLoc);
     }
 

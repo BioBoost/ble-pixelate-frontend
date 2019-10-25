@@ -18,7 +18,6 @@ class Display {
     }
 
     draw() {
-        console.log(this.grid);
         for (let row = 0; row < Display.HEIGHT; row++) {
             for (let col = 0; col < Display.WIDTH; col++) {
                 this.context.beginPath();
